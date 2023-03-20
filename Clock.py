@@ -12,3 +12,10 @@ class Clock:
             current_time = current_time[1:]
             # if the hour of time has a 0 at the start of the string, skip that character of the string.
         return current_time
+    def get_date(self):
+        current_date = self.date.strftime("%m/%d/%Y")
+            # formats the date to be MM/DD/YYYY
+        if (current_date[0] == '0'):
+            current_date = current_date[1:]
+            # if the start of the date has a 0 at the start of the string, skip the character.
+        return current_date
