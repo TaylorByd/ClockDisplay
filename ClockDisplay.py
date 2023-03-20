@@ -1,4 +1,7 @@
 import Clock
-
+import time
 clock = Clock.Clock()
-print (clock.get_day())
+
+while True:
+    time.sleep(0.1)
+    print(clock.get_time())
