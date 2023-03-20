@@ -1,4 +1,4 @@
 import Clock
 
 clock = Clock.Clock()
-print (clock.get_date())
+print (clock.get_day())
