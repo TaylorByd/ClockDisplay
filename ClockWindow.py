@@ -18,5 +18,7 @@ class ClockWindow(QWidget, Clock):
         self.day_label.setStyleSheet(f"color: {font_color};")
         self.time_label.setStyleSheet(f"color: {font_color};")
         self.date_label.setStyleSheet(f"color: {font_color};")
-
-
+    def set_text(self):
+        self.day_label.setText(Clock.get_date())
+        self.date_label.setText(Clock.get_date())
+        self.time_label.setText(Clock.get_time())
