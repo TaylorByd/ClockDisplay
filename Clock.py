@@ -1,10 +1,6 @@
 from datetime import datetime
 
 class Clock:
-    def __init__(self):
-        self.time = datetime.now()
-        self.date = datetime.now()
-        self.day = datetime.today()
     def get_time(self):
         self.time = datetime.now()
         current_time = self.time.strftime("%I:%M:%S %p")
