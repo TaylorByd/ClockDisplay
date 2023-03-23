@@ -43,14 +43,3 @@ class ClockWindow(QWidget, Clock):
         self.day_label.setText(Clock.get_day(self) + " ")
         self.date_label.setText(Clock.get_date(self))
         self.time_label.setText(Clock.get_time(self))
-
-App = QApplication(sys.argv)
- 
-clock_window = ClockWindow()
-clock_window.setup_time_font(150, 'Arial')
-clock_window.setup_day_font(75, 'Arial')
-clock_window.setup_date_font(75, 'Arial')
-clock_window.setup_color('black', 'white')
-clock_window.show()
-
-App.exit(App.exec_())
