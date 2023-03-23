@@ -25,20 +25,25 @@ class ClockWindow(QWidget, Clock):
         timer = QTimer(self)
         timer.timeout.connect(self.set_text)
         timer.start(100)
+    
     def setup_time_font(self, fontsize, font_type):
         font = QFont(f'{font_type}', fontsize)
         self.time_label.setFont(font)
+    
     def setup_day_font(self, fontsize, font_type):
         font = QFont(f'{font_type}', fontsize)
         self.day_label.setFont(font)
+    
     def setup_date_font(self, fontsize, font_type):
         font = QFont(f'{font_type}', fontsize)
         self.date_label.setFont(font)
+   
     def setup_color(self,background_color, font_color):
         self.setStyleSheet(f"background-color: {background_color};")
         self.day_label.setStyleSheet(f"color: {font_color};")
         self.time_label.setStyleSheet(f"color: {font_color};")
         self.date_label.setStyleSheet(f"color: {font_color};")
+    
     def set_text(self):
         self.day_label.setText(Clock.get_day(self) + " ")
         self.date_label.setText(Clock.get_date(self))
