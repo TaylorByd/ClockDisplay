@@ -21,7 +21,7 @@ class ClockWindow(QWidget, Clock):
         vbox.addLayout(hbox)
         vbox.setAlignment(Qt.AlignCenter)
         self.setLayout(vbox)
-
+        # This is timer that will execute the function every 100 milliseconds
         timer = QTimer(self)
         timer.timeout.connect(self.set_text)
         timer.start(100)
@@ -47,10 +47,10 @@ class ClockWindow(QWidget, Clock):
 App = QApplication(sys.argv)
  
 clock_window = ClockWindow()
-clock_window.setup_time_font(150, 'Comic Sans MS')
-clock_window.setup_day_font(75, 'Comic Sans MS')
-clock_window.setup_date_font(75, 'Comic Sans MS')
-clock_window.setup_color('white', 'black')
+clock_window.setup_time_font(150, 'Arial')
+clock_window.setup_day_font(75, 'Arial')
+clock_window.setup_date_font(75, 'Arial')
+clock_window.setup_color('black', 'white')
 clock_window.show()
 
 App.exit(App.exec_())
