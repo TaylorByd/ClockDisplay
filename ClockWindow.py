@@ -15,7 +15,8 @@ class ClockWindow(QWidget, Clock):
         hbox.addWidget(self.day_label)
         hbox.addWidget(self.date_label)
         hbox.setAlignment(Qt.AlignCenter)
-        # nesting the horizontal layout with the vertical layout and adding a time label
+        # combining the horizontal layout of the date label and day label with the vertical layout of the time label
+        # This is effectively nesting two layouts together
         vbox = QVBoxLayout()
         vbox.addWidget(self.time_label)
         vbox.addLayout(hbox)

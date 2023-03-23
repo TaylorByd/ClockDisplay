@@ -9,6 +9,6 @@ clock_window.setup_time_font(150, 'Arial')
 clock_window.setup_day_font(75, 'Arial')
 clock_window.setup_date_font(75, 'Arial')
 clock_window.setup_color('black', 'white')
-clock_window.show()
+clock_window.showFullScreen()
 
 App.exit(App.exec_())
