@@ -1,8 +1,7 @@
 from Clock import Clock
-from PyQt5.QtWidgets import QWidget, QLabel, QApplication, QHBoxLayout, QVBoxLayout
+from PyQt5.QtWidgets import QWidget, QLabel, QHBoxLayout, QVBoxLayout
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import QTimer, Qt
-import sys
 
 class ClockWindow(QWidget, Clock):
     def __init__(self):
