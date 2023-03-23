@@ -10,31 +10,30 @@ class ClockWindow(QWidget, Clock):
         self.time_label = QLabel()
         self.date_label = QLabel()
         self.day_label = QLabel()
-
+        # creating a horizontal layout with a day label and date label
         hbox = QHBoxLayout()
         hbox.addWidget(self.day_label)
         hbox.addWidget(self.date_label)
         hbox.setAlignment(Qt.AlignCenter)
-        # creating a horizontal layout with a day label and date label
-
+        # nesting the horizontal layout with the vertical layout and adding a time label
         vbox = QVBoxLayout()
         vbox.addWidget(self.time_label)
         vbox.addLayout(hbox)
         vbox.setAlignment(Qt.AlignCenter)
         self.setLayout(vbox)
-        # nesting the horizontal layout with the vertical layout and adding a time label
 
         timer = QTimer(self)
         timer.timeout.connect(self.set_text)
         timer.start(100)
-
-    def setup_font(self, fontsize, font_type):
+    def setup_time_font(self, fontsize, font_type):
         font = QFont(f'{font_type}', fontsize)
         self.time_label.setFont(font)
-        fontsize -= 50
+    def setup_day_font(self, fontsize, font_type):
+        font = QFont(f'{font_type}', fontsize)
+        self.day_label.setFont(font)
+    def setup_date_font(self, fontsize, font_type):
         font = QFont(f'{font_type}', fontsize)
         self.date_label.setFont(font)
-        self.day_label.setFont(font)
     def setup_color(self,background_color, font_color):
         self.setStyleSheet(f"background-color: {background_color};")
         self.day_label.setStyleSheet(f"color: {font_color};")
@@ -48,7 +47,9 @@ class ClockWindow(QWidget, Clock):
 App = QApplication(sys.argv)
  
 clock_window = ClockWindow()
-clock_window.setup_font(100, 'Comic Sans MS')
+clock_window.setup_time_font(150, 'Comic Sans MS')
+clock_window.setup_day_font(75, 'Comic Sans MS')
+clock_window.setup_date_font(75, 'Comic Sans MS')
 clock_window.setup_color('white', 'black')
 clock_window.show()
 
