@@ -1,11 +1,13 @@
 from Clock import Clock
-from PyQt5.QtWidgets import QWidget, QLabel, QHBoxLayout, QVBoxLayout
-from PyQt5.QtGui import QFont
+from PyQt5.QtWidgets import QWidget, QLabel, QHBoxLayout, QVBoxLayout, QStackedLayout
+from PyQt5.QtGui import QFont, QPixmap
 from PyQt5.QtCore import QTimer, Qt
 
 class ClockWindow(QWidget, Clock):
-    def __init__(self):
+    def __init__(self): 
         super().__init__()
+        self.img = QPixmap()
+        self.background_img = QLabel()
         self.time_label = QLabel()
         self.date_label = QLabel()
         self.day_label = QLabel()
@@ -16,11 +18,11 @@ class ClockWindow(QWidget, Clock):
         hbox.setAlignment(Qt.AlignCenter)
         # combining the horizontal layout of the date label and day label with the vertical layout of the time label
         # This is effectively nesting two layouts together
-        vbox = QVBoxLayout()
-        vbox.addWidget(self.time_label)
-        vbox.addLayout(hbox)
-        vbox.setAlignment(Qt.AlignCenter)
-        self.setLayout(vbox)
+        self.vbox = QVBoxLayout()
+        self.vbox.addWidget(self.time_label)
+        self.vbox.addLayout(hbox)
+        self.vbox.setAlignment(Qt.AlignCenter)
+        self.setLayout(self.vbox)
         # This is timer that will execute the function every 100 milliseconds
         timer = QTimer(self)
         timer.timeout.connect(self.set_text)
@@ -45,6 +47,14 @@ class ClockWindow(QWidget, Clock):
 
     def setup_background_color(self, background_color):
         self.setStyleSheet(f"background-color: {background_color};")
+
+    def setup_background_img(self, url):
+        self.img = QPixmap(url)
+        self.background_img.setPixmap(self.img)
+        layout = QStackedLayout()
+        layout.addChildLayout(self.vbox)
+        layout.addWidget(self.background_img)
+        layout.setAlignment(Qt.AlignCenter)
 
     def set_text(self):
         self.day_label.setText(Clock.get_day(self) + " ")
