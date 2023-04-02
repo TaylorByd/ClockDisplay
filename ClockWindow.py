@@ -20,11 +20,9 @@ class ClockWindow(Clock):
     def setup_date_font(self, fontsize, font_type):
         return
    
-    def setup_font_color(self, font_color):
-        return
-
-    def setup_background_color(self, background_color):
-        return
+    def setup_color(self, font_color, background_color):
+        self.time_label.configure(bg= background_color, fg = font_color)
+        self.window.configure(bg= background_color)
 
     def setup_background_img(self, url):
         return
