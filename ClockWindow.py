@@ -19,7 +19,8 @@ class ClockWindow(Clock):
         self.window.attributes('-fullscreen', True)
 
     def setup_time_font(self, font_type, font_size):
-        return
+        self.font_time = (font_type, font_size)
+        self.my_canvas.itemconfig(self.time_label, font = self.font_time)
     
     def setup_day_font(self, fontsize, font_type):
         return
