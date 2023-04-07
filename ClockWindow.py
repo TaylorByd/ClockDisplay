@@ -20,7 +20,7 @@ class ClockWindow(Clock):
 
     def setup_time_font(self, font_type, font_size):
         self.font_time = (font_type, font_size)
-        self.my_canvas.itemconfig(self.time_label, font = self.font_time)
+        self.my_canvas.itemconfig(self.time_label, font= self.font_time)
     
     def setup_day_font(self, fontsize, font_type):
         return
@@ -29,7 +29,8 @@ class ClockWindow(Clock):
         return
    
     def setup_color(self, font_color, background_color):
-        return
+        self.my_canvas.itemconfig(self.time_label, fill= font_color)
+        self.my_canvas.configure(bg= background_color)
 
     def setup_background_img(self, url):
         return
